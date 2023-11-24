@@ -1,21 +1,28 @@
 ## Abstract
 <!-- Context      -->
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+To tackle economic and societal problems originating from the centralization of Knowledge Graphs on the Web,
+there has been an increasing interest towards *decentralizing* Knowledge Graphs across a large number of small authoritative sources.
 <!-- Need         -->
-Vestibulum finibus dignissim augue, id pellentesque est facilisis non.
+In order to effectively build user-facing applications,
+there is a need for efficient query engines that abstract the complexities around accessing
+such massively Decentralized Knowledge Graphs (DKGs).
 <!-- Task         -->
-Donec fringilla dolor non neque iaculis blandit.
+As such, we have designed and implemented novel Link Traversal Query Processing algorithms into the Comunica query engine framework
+that are capable of efficiently evaluating SPARQL queries across DKGs provided by the Solid decentralization initiative.
 <!-- Object       -->
-Praesent aliquet eleifend iaculis.
+In this article, we demonstrate this query engine through a Web-based interface
+over which SPARQL queries can be executed over simulated and real-world Solid environments.
 <!-- Findings     -->
-Quisque pellentesque at odio ac bibendum.
 <!-- Conclusion   -->
-Pellentesque imperdiet felis urna, quis facilisis lacus gravida non.
+Our demonstration shows the benefits of a traversal-based approach towards querying DKGs,
 <!-- Perspectives -->
-Donec quis lectus eget sem tempor tristique pellentesque in dolor.
+and uncovers opportunities for further optimizations in future work.
 
 <span id="keywords" rel="schema:about"><span class="title">Keywords</span>
-<a href="https://en.wikipedia.org/wiki/Linked_Data" resource="http://dbpedia.org/resource/Linked_Data">Linked Data</a>;
+Decentralized Knowledge Graphs,
+<a href="https://en.wikipedia.org/wiki/SPARQL" resource="http://dbpedia.org/resource/SPARQL">SPARQL</a>,
+Solid,
+<a href="https://en.wikipedia.org/wiki/Linked_Data" resource="http://dbpedia.org/resource/Linked_Data">Linked Data</a>,
 <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework" resource="http://dbpedia.org/resource/Resource_Description_Framework">RDF</a>
 </span>
 
