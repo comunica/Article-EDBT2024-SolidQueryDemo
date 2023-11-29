@@ -46,6 +46,10 @@ in which we have setup a large number of simulated Solid pods.
 
 Concretely, we host 1.531 Solid pods that were generated using the default settings of the [SolidBench](cite:cites solidquery) dataset generator,
 which consists of 3.556.159 triples spread over 158.233 RDF files across these pods.
+The SolidBench dataset is derived from the [LDBC Social Network Benchmark (SNB)](cite:cites ldbc_snb_interactive),
+which provides a social network use case,
+in which people can be friends of each other,
+create posts, and like and comment on each others posts.
 Furthermore, we have pre-configured some of the SPARQL queries that SolidBench provides,
 which can then be executed over this simulated environment.
 
