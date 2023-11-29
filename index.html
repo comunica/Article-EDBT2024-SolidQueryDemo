@@ -62,6 +62,8 @@ Our demonstration shows the benefits of a traversal-based approach towards query
 <!-- Perspectives -->
 and uncovers opportunities for further optimizations in future work.</p>
 
+      <p><strong>Video</strong>: <a href="https://www.youtube.com/watch?v=4WHWgWWZ_aQ">https:/​/​www.youtube.com/watch?v=4WHWgWWZ_aQ</a></p>
+
       <p><span id="keywords" rel="schema:about"><span class="title">Keywords</span>
 Decentralized Knowledge Graphs,
 <a href="https://en.wikipedia.org/wiki/SPARQL" resource="http://dbpedia.org/resource/SPARQL">SPARQL</a>,
@@ -200,10 +202,20 @@ As such, our system is able to execute SPARQL queries over Solid pods using a tr
 Since certain documents within Solid pods may exist behind access control,
 our implementation supports authentication.
 This allows users to log into the query engine using their Solid account,
-after which the query engine will execute query on their behalf across all data the user can access.
-Our implementation is available under the MIT license at <a href="https://github.com/comunica/comunica-feature-link-traversal">https:/​/​github.com/comunica/comunica-feature-link-traversal</a>.</p>
+after which the query engine will execute query on their behalf across all data the user can access.</p>
 
-        <p class="todo">Eval summary? (solidbench, main results)</p>
+        <p>Our implementation is available under the MIT license at <a href="https://github.com/comunica/comunica-feature-link-traversal">https:/​/​github.com/comunica/comunica-feature-link-traversal</a>,
+and via the npm package manager as <a href="https://www.npmjs.com/package/@comunica/query-sparql-link-traversal-solid"><code>@comunica/query-sparql-link-traversal-solid</code></a>.
+Our implementation can be used directly within any TypeScript or JavaScript application.
+Furthermore, we provide a script using which queries can be executed from the command line,
+as shown in <a href="#figure-cli">Fig. 2</a>.</p>
+
+        <figure id="figure-cli">
+<img src="img/cli.png" alt="Command line interface" class="img-narrow" />
+<figcaption>
+            <p><span class="label">Fig. 2:</span> Executing a SPARQL query from the command line.</p>
+          </figcaption>
+</figure>
 
       </div>
 </section>
@@ -227,7 +239,7 @@ This page is hosted on <a href="https://comunica.github.io/comunica-feature-link
 <figure id="figure-ui-screenshot">
 <img src="img/ui-screenshot.png" alt="User interface" class="img-narrow" />
 <figcaption>
-              <p><span class="label">Fig. 2:</span> Web-based user interface of our traversal-based SPARQL query engine.</p>
+              <p><span class="label">Fig. 3:</span> Web-based user interface of our traversal-based SPARQL query engine.</p>
             </figcaption>
 </figure>
 </div>
@@ -268,12 +280,12 @@ which can then be executed over this simulated environment.</p>
 which will produce all posts that are created by a specific person.
 For this, we will enable the Network inspection tool tab within the Chrome browser,
 which allows the audience to see the Resource Waterfall of all HTTP requests that were required to execute the query.
-<a href="#figure-ui-resource-waterfall-1-5">Fig. 3</a> shows a screenshot of this scenario.</p>
+<a href="#figure-ui-resource-waterfall-1-5">Fig. 4</a> shows a screenshot of this scenario.</p>
 
         <figure id="figure-ui-resource-waterfall-1-5">
 <img src="img/ui-resource-waterfall-1-5.png" alt="Resource Waterfall for Discover 1.5" class="img-narrow" />
 <figcaption>
-            <p><span class="label">Fig. 3:</span> The Resource Waterfall logs when executing Discover 1.5 from SolidBench.</p>
+            <p><span class="label">Fig. 4:</span> The Resource Waterfall logs when executing Discover 1.5 from SolidBench.</p>
           </figcaption>
 </figure>
 
@@ -281,14 +293,14 @@ which allows the audience to see the Resource Waterfall of all HTTP requests tha
 we will also show <em>“Discover 8.5”</em>, which targets multiple Solid pods
 and will return all posts by authors of posts that a given person likes.
 In contrast to the previous query, <em>“Discover 8.5”</em> will traverse across multiple Solid pods,
-as shown in <a href="#figure-ui-resource-waterfall-8-5">Fig. 4</a>
+as shown in <a href="#figure-ui-resource-waterfall-8-5">Fig. 5</a>
 Since this happens in a traversal-based manner,
 all of this happens automatically in the background without requiring any user interaction.</p>
 
         <figure id="figure-ui-resource-waterfall-8-5">
 <img src="img/ui-resource-waterfall-8-5.png" alt="Resource Waterfall for Discover 8.5" class="img-narrow" />
 <figcaption>
-            <p><span class="label">Fig. 4:</span> The Resource Waterfall logs when executing Discover 8.5 from SolidBench.</p>
+            <p><span class="label">Fig. 5:</span> The Resource Waterfall logs when executing Discover 8.5 from SolidBench.</p>
           </figcaption>
 </figure>
 
