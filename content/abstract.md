@@ -18,6 +18,8 @@ Our demonstration shows the benefits of a traversal-based approach towards query
 <!-- Perspectives -->
 and uncovers opportunities for further optimizations in future work.
 
+**Video**: [https://www.youtube.com/watch?v=4WHWgWWZ_aQ](https://www.youtube.com/watch?v=4WHWgWWZ_aQ)
+
 <span id="keywords" rel="schema:about"><span class="title">Keywords</span>
 Decentralized Knowledge Graphs,
 <a href="https://en.wikipedia.org/wiki/SPARQL" resource="http://dbpedia.org/resource/SPARQL">SPARQL</a>,
