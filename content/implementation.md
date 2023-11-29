@@ -13,7 +13,16 @@ Since certain documents within Solid pods may exist behind access control,
 our implementation supports authentication.
 This allows users to log into the query engine using their Solid account,
 after which the query engine will execute query on their behalf across all data the user can access.
-Our implementation is available under the MIT license at [https://github.com/comunica/comunica-feature-link-traversal](https://github.com/comunica/comunica-feature-link-traversal).
 
-Eval summary? (solidbench, main results)
-{:.todo}
+Our implementation is available under the MIT license at [https://github.com/comunica/comunica-feature-link-traversal](https://github.com/comunica/comunica-feature-link-traversal),
+and via the npm package manager as [`@comunica/query-sparql-link-traversal-solid`](https://www.npmjs.com/package/@comunica/query-sparql-link-traversal-solid).
+Our implementation can be used directly within any TypeScript or JavaScript application.
+Furthermore, we provide a script using which queries can be executed from the command line,
+as shown in [](#figure-cli).
+
+<figure id="figure-cli">
+<img src="img/cli.png" alt="Command line interface" class="img-narrow">
+<figcaption markdown="block">
+Executing a SPARQL query from the command line.
+</figcaption>
+</figure>
