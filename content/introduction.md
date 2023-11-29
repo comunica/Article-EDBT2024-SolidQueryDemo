@@ -42,7 +42,7 @@ and use this to optimize LTQP in terms of the number of links that need to be fo
 Such a traversal-based approach does not rely on prior indexes over Solid pods, and can query over live data.
 
 The focus of this article is on demonstrating the implementation of a query engine
-that can execute SPARQL queries across Solid pods using LTQP techniques.
+that can execute SPARQL queries across Solid pods using the LTQP techniques introduced in [](cite:cites solidquery).
 This query engine is open-source, and is implemented in a modular way so it can serve future research in this domain.
 We demonstrate this query engine through a Web-based user interface,
 in which preconfigured or manually created SPARQL queries can be executed across both simulated or real-world Solid pods.
