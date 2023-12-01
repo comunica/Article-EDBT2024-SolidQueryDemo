@@ -19,6 +19,16 @@ After that, the plan is executed following an [iterator-based pipeline approach]
 which considers the execution plan as a [pipeline](cite:cites pipelining) of iterator-based physical operators.
 This pipelined approach allows results to be returned to the end-user,
 even though the link traversal and query processing may still be running for a longer time.
+A visualization of the architecture of our approach can be seen in [](#figure-link-queue).
+
+<figure id="figure-link-queue">
+<img src="img/link-queue.svg" alt="Link queue" class="img-narrow">
+<figcaption markdown="block">
+Link queue, dereferencer, and link extractors feeding triples into a triple source,
+producing triples to tuple-producing operators
+in a pipelined query execution.
+</figcaption>
+</figure>
 
 Instead of considering all possible links that are discovered in the RDF triples,
 we apply various [Solid-specific](cite:cites solidquery) and [Solid-agnostic](cite:cites linktraversalfoundations) link extraction strategies.
@@ -56,16 +66,5 @@ A simplified WebID profile in Turtle.
 ````/code/typeindex.ttl````
 <figcaption markdown="block">
 Example of a type index with entries for posts and comments in RDF Turtle.
-</figcaption>
-</figure>
-
-A visualization of the architecture of our approach can be seen in [](#figure-link-queue).
-
-<figure id="figure-link-queue">
-<img src="img/link-queue.svg" alt="Link queue" class="img-narrow">
-<figcaption markdown="block">
-Link queue, dereferencer, and link extractors feeding triples into a triple source,
-producing triples to tuple-producing operators
-in a pipelined query execution.
 </figcaption>
 </figure>
