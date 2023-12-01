@@ -21,9 +21,29 @@ even though the link traversal and query processing may still be running for a l
 
 Instead of considering all possible links that are discovered in the RDF triples,
 we apply various [Solid-specific](cite:cites solidquery) and [Solid-agnostic](cite:cites linktraversalfoundations) link extraction strategies.
-For example, Solid pods can expose a [Type Index](cite:cites spec:typeindex),
+For example, all Solid pods make use of the [Linked Data Platform (LDP) specification](cite:cites spec:ldp)
+to provide an overview of all RDF documents inside a pod, which may be nested in a hierarchy of *containers*.
+An example of such a container can be seen in [](#example-ldpcontainer),
+which contains links to another document and two containers.
+Furthermore, Solid pods can expose a [Type Index](cite:cites spec:typeindex),
 which contains a list of RDF classes for which instances exist in this pod,
 together with links to RDF documents containing such instances.
+An example of such a Type Index can be seen in [](#example-typeindex),
+which contains entries for posts and comments.
+
+<figure id="example-ldpcontainer" class="listing">
+````/code/ldpcontainer.ttl````
+<figcaption markdown="block">
+An LDP container in a Solid data vault containing one file and two directories in the RDF Turtle serialization.
+</figcaption>
+</figure>
+
+<figure id="example-typeindex" class="listing">
+````/code/typeindex.ttl````
+<figcaption markdown="block">
+Example of a type index with entries for posts and comments in RDF Turtle.
+</figcaption>
+</figure>
 
 A visualization of the architecture of our approach can be seen in [](#figure-link-queue).
 

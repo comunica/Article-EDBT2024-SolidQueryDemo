@@ -1,0 +1,7 @@
+PREFIX pim: <http://www.w3.org/ns/pim/space#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX solid: <http://www.w3.org/ns/solid/terms#> 
+<#me> foaf:name "Zulma";
+      pim:storage </>;
+      solid:oidcIssuer <https://solidcommunity.net/>;
+      solid:publicTypeIndex </publicTypeIndex.ttl>.
