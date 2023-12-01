@@ -16,7 +16,7 @@ over which SPARQL queries can be executed over simulated and real-world Solid en
 <!-- Conclusion   -->
 Our demonstration shows the benefits of a traversal-based approach towards querying DKGs,
 <!-- Perspectives -->
-and uncovers opportunities for further optimizations in future work.
+and uncovers opportunities for further optimizations in future work in terms of both query execution and discovery algorithms.
 
 **Video**: [https://www.youtube.com/watch?v=4WHWgWWZ_aQ](https://www.youtube.com/watch?v=4WHWgWWZ_aQ)
 
