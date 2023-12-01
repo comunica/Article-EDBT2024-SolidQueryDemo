@@ -1,7 +1,8 @@
 ## Approach
 {:#approach}
 
-Our approach enables query execution across one or more Solid pods without the need to build any prior indexes.
+[Our previously introduced approach](cite:cites solidquery) enables query execution across one or more Solid pods
+without the need to build any prior indexes.
 For this, we build on top of the [Link Traversal Query Processing (LTQP)](cite cites linktraversal) paradigm,
 whereby the query engine maintains an internal *link queue* which is initialized through a set of *seed URLs*.
 This set of seed URLs determine the starting point for traversal, and may either be user-provided,
