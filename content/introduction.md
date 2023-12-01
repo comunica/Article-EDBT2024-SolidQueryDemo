@@ -48,6 +48,12 @@ In this previous work, we introduced various LTQP techniques that understand the
 and use this to optimize LTQP in terms of the number of links that need to be followed.
 Such a traversal-based approach does not rely on prior indexes over Solid pods,
 and can query over live data that is spread over multiple pods.
+[Results have shown](cite:cites solidquery) that non-complex queries can be completed in the order of seconds,
+with first results showing up in less than a second.
+For more complex queries in terms of the number of triple patterns,
+results show that more fundamental optimization work is needed
+into adaptively optimizing the query plan upon newly discovered information
+and reducing the number of links to be followed.
 
 The focus of this article is on demonstrating the implementation of a query engine
 that can execute SPARQL queries across Solid pods using the LTQP techniques introduced in [](cite:cites solidquery).
