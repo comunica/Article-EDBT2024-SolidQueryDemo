@@ -40,6 +40,8 @@ This approach depends on placing trust over personal data in this single accumul
 which enables full SPARQL queries to be executed over single Solid pods. This approach does not consider query execution across multiple pods.
 In [recent work](cite:cites solidquery), we proposed making use of [Link Traversal Query Processing (LTQP)](cite cites linktraversal)
 for querying across one or more Solid pods.
+LTQP is derived from the idea of [*SQL-based query execution over the Web*](cite:cites queryingwwwsql, infogatheringwwww3ql)
+and the concept of [*focused crawling*](cite:cites focusedcrawling, focusedcrawlingimproving).
 LTQP starts query execution given a set of seed sources,
 from which links are recursively followed between RDF documents to discover additional data to consider during query execution,
 In this previous work, we introduced various LTQP techniques that understand the structural properties of Solid pods,
