@@ -1,0 +1,6 @@
+PREFIX ldp: <http://www.w3.org/ns/ldp#>
+<> a ldp:Container, ldp:BasicContainer, ldp:Resource;
+   ldp:contains <file.ttl>, <posts/>, <profile/>.
+<file.ttl> a ldp:Resource.
+<posts/> a ldp:Container, ldp:BasicContainer, ldp:Resource.
+<profile/> a ldp:Container, ldp:BasicContainer, ldp:Resource.

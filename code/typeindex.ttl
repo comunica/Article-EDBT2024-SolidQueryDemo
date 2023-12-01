@@ -1,0 +1,9 @@
+PREFIX ldp: <http://www.w3.org/ns/ldp#>
+<> a solid:TypeIndex ;
+   a solid:ListedDocument.
+<#ab09fd> a solid:TypeRegistration;
+  solid:forClass <http://example.org/Post>;
+  solid:instance </public/posts.ttl>.
+<#bq1r5e> a solid:TypeRegistration;
+  solid:forClass <http://example.org/Comment>;
+  solid:instanceContainer </public/comments/>.

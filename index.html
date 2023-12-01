@@ -11,7 +11,7 @@
   <meta name="citation_author" content="Ruben Taelman" />
   <meta name="citation_author" content="Ruben Verborgh" />
   
-  <meta name="citation_publication_date" content="2023/11/29" />
+  <meta name="citation_publication_date" content="2023/12/01" />
 </head>
 
 <body prefix="dctypes: http://purl.org/dc/dcmitype/ pimspace: http://www.w3.org/ns/pim/space# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# lsc: http://linkedscience.org/lsc/ns#" typeof="schema:CreativeWork sioc:Post prov:Entity lsc:Research">
@@ -60,7 +60,7 @@ over which SPARQL queries can be executed over simulated and real-world Solid en
 <!-- Conclusion   -->
 Our demonstration shows the benefits of a traversal-based approach towards querying DKGs,
 <!-- Perspectives -->
-and uncovers opportunities for further optimizations in future work.</p>
+and uncovers opportunities for further optimizations in future work in terms of both query execution and discovery algorithms.</p>
 
       <p><strong>Video</strong>: <a href="https://www.youtube.com/watch?v=4WHWgWWZ_aQ">https:/​/​www.youtube.com/watch?v=4WHWgWWZ_aQ</a></p>
 
@@ -104,21 +104,26 @@ focuses on centralized use cases,
 in which queries are to be executed over a single dataset, in which queries can be optimized using traditional <em>optimize-then-execute</em> techniques <span class="references">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</span>.</p>
 
         <p>Due to issues in recent years involving personal data exploitation on the Web,
-there has been increasing interest in the decentralization of such data.
+there has been increasing interest in the decentralization of such personal data.
 This has materialized into various decentralization initiatives,
 such as <a property="schema:citation http://purl.org/spar/cito/cites" href="https://ruben.verborgh.org/articles/redecentralizing-the-web/">Solid</a> <span class="references">[<a href="#ref-5">5</a>]</span>, <a property="schema:citation http://purl.org/spar/cito/cites" href="https://blueskyweb.xyz/">Bluesky</a> <span class="references">[<a href="#ref-6">6</a>]</span>, and Mastodon <span class="references">[<a href="#ref-7">7</a>]</span>.
 What is common among these initiatives, is that they distribute personal and permissioned data across a large number of authoritative Web sources,
 which leads to the emergence of Decentralized Knowledge Graphs (DKGs).
 For this work, we limit our scope to RDF-based initiatives such as Solid,
 as the use of IRIs in RDF enable convenient integration of data across multiple sources.
-Solid enables users to host and control <em>personal data pods</em>, which are data sources into which RDF documents can be stored.</p>
+Solid enables users to host and control <em>personal data pods</em>, which are data sources into which hierarchies of RDF documents can be stored.</p>
 
         <p>In order to <em>find</em> data across such massive distributions of data across the Web,
 there is a need for efficient query processing techniques.
 While techniques have been introduced that enable the execution of SPARQL federated queries <span class="references">[<a href="#ref-8">8</a>, <a href="#ref-9">9</a>, <a href="#ref-10">10</a>]</span>,
 they are <a property="schema:citation http://purl.org/spar/cito/cites" href="https://hal.science/hal-04180506/document">optimized for handling a <em>small</em> number (~10) of <em>large</em> sources</a> <span class="references">[<a href="#ref-11">11</a>]</span>,
 whereas DKGs such as Solid are characterized
-by a <em>large</em> number (&gt;1000) of <em>small</em> sources.
+by a <em>large</em> number (&gt;1000) of
+<span class="placeholder printonly">
+<span style="display: block; height: 9em;"></span>
+<!-- This is a dummy placeholder for the ACM first page footnote -->
+</span>
+<em>small</em> sources.
 Additionally, federated SPARQL query processing assumes sources to be known prior to query execution,
 which is not feasible in DKGs due to the lack of a central index.
 Hence, these techniques are ill-suited for the envisaged scale of distribution in DKGs.</p>
@@ -128,16 +133,25 @@ Hence, these techniques are ill-suited for the envisaged scale of distribution i
 which can be accumulated in a single location.
 This accumulated index can then be queried using keyword search to find relevant pods to a query,
 after which these relevant pods can be queried using federated SPARQL processing techniques.
-This approach does however depend on placing trust over personal data in this single accumulated indexer.
+This approach depends on placing trust over personal data in this single accumulated indexer.
 <a property="schema:citation http://purl.org/spar/cito/cites" href="https://biblio.ugent.be/publication/01HFXXCEDY864SVA6VRARWQ64D">POD-QUERY</a> <span class="references">[<a href="#ref-13">13</a>]</span> is another approach that involves placing a SPARQL query engine agent in front of a Solid pod,
 which enables full SPARQL queries to be executed over single Solid pods. This approach does not consider query execution across multiple pods.
 In <a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2023-SolidQuery/">recent work</a> <span class="references">[<a href="#ref-14">14</a>]</span>, we proposed making use of <a href="cite cites linktraversal">Link Traversal Query Processing (LTQP)</a>
 for querying across one or more Solid pods.
+LTQP is derived from the idea of <em>SQL-based query execution over the Web</em> <span class="references">[<a href="#ref-15">15</a>, <a href="#ref-16">16</a>]</span>
+and the concept of <em>focused crawling</em> <span class="references">[<a href="#ref-17">17</a>, <a href="#ref-18">18</a>]</span>.
 LTQP starts query execution given a set of seed sources,
-from which links are recursively followed to discover additional data to consider during query execution,
+from which links are recursively followed between RDF documents to discover additional data to consider during query execution,
 In this previous work, we introduced various LTQP techniques that understand the structural properties of Solid pods,
 and use this to optimize LTQP in terms of the number of links that need to be followed.
-Such a traversal-based approach does not rely on prior indexes over Solid pods, and can query over live data.</p>
+Such a traversal-based approach does not rely on prior indexes over Solid pods,
+and can query over live data that is spread over multiple pods.
+<a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2023-SolidQuery/">Results have shown</a> <span class="references">[<a href="#ref-14">14</a>]</span> that non-complex queries can be completed in the order of seconds,
+with first results showing up in less than a second.
+For more complex queries in terms of the number of triple patterns,
+results show that more fundamental optimization work is needed
+into adaptively optimizing the query plan upon newly discovered information
+and reducing the number of links to be followed.</p>
 
         <p>The focus of this article is on demonstrating the implementation of a query engine
 that can execute SPARQL queries across Solid pods using the LTQP techniques introduced in <span class="references">[<a href="#ref-14">14</a>]</span>.
@@ -155,23 +169,84 @@ after which we conclude in <a href="#conclusions">Section 5</a>.</p>
 <div datatype="rdf:HTML" property="schema:description">
         <h2 property="schema:name">Approach</h2>
 
-        <p>Our approach enables query execution across one or more Solid pods without the need to build any prior indexes.
+        <p><a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2023-SolidQuery/">Our previously introduced approach</a> <span class="references">[<a href="#ref-14">14</a>]</span> enables query execution across one or more Solid pods
+without the need to build any prior indexes.
 For this, we build on top of the <a href="cite cites linktraversal">Link Traversal Query Processing (LTQP)</a> paradigm,
-whereby the query engine maintains an internal <em>link queue</em> which is initialized through a set of seed URLs.
-The query engine then iterates over this link queue, by dereferencing each link,
+whereby the query engine maintains an internal <em>link queue</em> which is initialized through a set of <em>seed URLs</em>.
+This set of seed URLs determine the starting point for traversal, and may either be user-provided,
+or can be derived from the URLs mentioned in the given SPARQL query.
+The query engine will start the process by continuously iterating over this link queue, dereferencing each link,
 and adding all discovered RDF triples into an internal triple source that can continuously grow.
 Furthermore, for each dereferenced link with resulting RDF triples, the engine finds links to other sources,
 which are appended to the link queue.
-During the processing of the link queue, the actual query processing happens in parallel over the continuously growing internal triple.
-This processing starts by building a logical query plan using the zero-knowledge query planning technique <span class="references">[<a href="#ref-15">15</a>]</span>.
-After that, the plan is executed following the iterator-based pipeline approach <span class="references">[<a href="#ref-16">16</a>]</span>,
-which considers the execution plan as a pipeline <span class="references">[<a href="#ref-17">17</a>]</span> of iterator-based physical operators.</p>
+Different strategies exist for determining these links <span class="references">[<a href="#ref-19">19</a>, <a href="#ref-14">14</a>]</span>.
+During the processing of this link queue, the actual query processing happens in parallel over the continuously growing internal triple.
+This processing starts by building a logical query plan using the zero-knowledge query planning technique <span class="references">[<a href="#ref-20">20</a>]</span>,
+which is necessary due to the fact that LTQP has no access to prior statistical information about the data to be queried over.
+After that, the plan is executed following an iterator-based pipeline approach <span class="references">[<a href="#ref-21">21</a>]</span>,
+which considers the execution plan as a pipeline <span class="references">[<a href="#ref-22">22</a>]</span> of iterator-based physical operators.
+This pipelined approach allows results to be returned to the end-user,
+even though the link traversal and query processing may still be running for a longer time.</p>
 
         <p>Instead of considering all possible links that are discovered in the RDF triples,
-we apply various <a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2023-SolidQuery/">Solid-specific</a> <span class="references">[<a href="#ref-14">14</a>]</span> and Solid-agnostic <span class="references">[<a href="#ref-18">18</a>]</span> link extraction strategies.
-For example, Solid pods can expose a <a property="schema:citation http://purl.org/spar/cito/cites" href="https://solid.github.io/type-indexes/">Type Index</a> <span class="references">[<a href="#ref-19">19</a>]</span>,
+we apply various <a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2023-SolidQuery/">Solid-specific</a> <span class="references">[<a href="#ref-14">14</a>]</span> and Solid-agnostic <span class="references">[<a href="#ref-19">19</a>]</span> link extraction strategies.
+For example, all Solid pods make use of the <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/ldp/">Linked Data Platform (LDP) specification</a> <span class="references">[<a href="#ref-23">23</a>]</span>
+to provide an overview of all RDF documents inside a pod, which may be nested in a hierarchy of <em>containers</em>.
+An example of such a container can be seen in <a href="#example-ldpcontainer">Listing 1</a>,
+which contains links to another document and two containers.
+In order to indicate the existence of such Solid pods,
+agents within the Solid ecosystem (typically persons of organizations) may link to their pods via their identifying <a property="schema:citation http://purl.org/spar/cito/cites" href="https://solid.github.io/webid-profile/"><em>WebID</em></a> <span class="references">[<a href="#ref-24">24</a>]</span>.
+Through this WebID, agents can be uniquely identified via a URL.
+After dereferencing this URL, an RDF document can be returned that can contain a link to the user’s Solid pod
+and other basic information such as name and contact details.
+An example of such a WebID document is shown in <a href="#example-webidprofile">Listing 2</a>.
+Furthermore, Solid pods can expose a <a property="schema:citation http://purl.org/spar/cito/cites" href="https://solid.github.io/type-indexes/">Type Index</a> <span class="references">[<a href="#ref-25">25</a>]</span>,
 which contains a list of RDF classes for which instances exist in this pod,
-together with links to RDF documents containing such instances.</p>
+together with links to RDF documents containing such instances.
+An example of such a Type Index can be seen in <a href="#example-typeindex">Listing 3</a>,
+which contains entries for posts and comments.</p>
+
+        <figure id="example-ldpcontainer" class="listing">
+<pre><code>PREFIX ldp: &lt;http://www.w3.org/ns/ldp#&gt;
+</code><code>&lt;&gt; a ldp:Container, ldp:BasicContainer, ldp:Resource;
+</code><code>   ldp:contains &lt;file.ttl&gt;, &lt;posts/&gt;, &lt;profile/&gt;.
+</code><code>&lt;file.ttl&gt; a ldp:Resource.
+</code><code>&lt;posts/&gt; a ldp:Container, ldp:BasicContainer, ldp:Resource.
+</code><code>&lt;profile/&gt; a ldp:Container, ldp:BasicContainer, ldp:Resource.</code></pre>
+<figcaption>
+            <p><span class="label">Listing 1:</span> An LDP container in a Solid data vault containing one file and two directories in the RDF Turtle serialization.</p>
+          </figcaption>
+</figure>
+
+        <figure id="example-webidprofile" class="listing">
+<pre><code>PREFIX pim: &lt;http://www.w3.org/ns/pim/space#&gt;
+</code><code>PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+</code><code>PREFIX solid: &lt;http://www.w3.org/ns/solid/terms#&gt; 
+</code><code>&lt;#me&gt; foaf:name &quot;Zulma&quot;;
+</code><code>      pim:storage &lt;/&gt;;
+</code><code>      solid:oidcIssuer &lt;https://solidcommunity.net/&gt;;
+</code><code>      solid:publicTypeIndex &lt;/publicTypeIndex.ttl&gt;.
+</code></pre>
+<figcaption>
+            <p><span class="label">Listing 2:</span> A simplified WebID profile in Turtle.</p>
+          </figcaption>
+</figure>
+
+        <figure id="example-typeindex" class="listing">
+<pre><code>PREFIX ldp: &lt;http://www.w3.org/ns/ldp#&gt;
+</code><code>&lt;&gt; a solid:TypeIndex ;
+</code><code>   a solid:ListedDocument.
+</code><code>&lt;#ab09fd&gt; a solid:TypeRegistration;
+</code><code>  solid:forClass &lt;http://example.org/Post&gt;;
+</code><code>  solid:instance &lt;/public/posts.ttl&gt;.
+</code><code>&lt;#bq1r5e&gt; a solid:TypeRegistration;
+</code><code>  solid:forClass &lt;http://example.org/Comment&gt;;
+</code><code>  solid:instanceContainer &lt;/public/comments/&gt;.
+</code></pre>
+<figcaption>
+            <p><span class="label">Listing 3:</span> Example of a type index with entries for posts and comments in RDF Turtle.</p>
+          </figcaption>
+</figure>
 
         <p>A visualization of the architecture of our approach can be seen in <a href="#figure-link-queue">Fig. 1</a>.</p>
 
@@ -191,17 +266,17 @@ in a pipelined query execution.</p>
 <div datatype="rdf:HTML" property="schema:description">
         <h2 property="schema:name">Implementation</h2>
 
-        <p>Our approach has been implemented using the JavaScript/TypeScript-based <a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2018-Resource/">Comunica SPARQL framework</a> <span class="references">[<a href="#ref-20">20</a>]</span>.
+        <p>Our approach has been implemented using the JavaScript/TypeScript-based <a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2018-Resource/">Comunica SPARQL framework</a> <span class="references">[<a href="#ref-26">26</a>]</span>.
 Following the modular architecture of Comunica,
-we have implemented our approach in several small modules,
+we have implemented our approach as several small modules,
 which allows modules to be enabled or disabled using a plug-and-play configuration system
 for the flexible combination of techniques during experimentation.
 This implementation has full support for SPARQL 1.1 queries,
 which consists of pipelined implementations of all monotonic SPARQL operators.
 As such, our system is able to execute SPARQL queries over Solid pods using a traversal-based approach.
-Since certain documents within Solid pods may exist behind access control,
+Since certain documents within Solid pods may exist behind document-level access control,
 our implementation supports authentication.
-This allows users to log into the query engine using their Solid account,
+This allows users to log into the query engine using their Solid WebID,
 after which the query engine will execute query on their behalf across all data the user can access.</p>
 
         <p>Our implementation is available under the MIT license at <a href="https://github.com/comunica/comunica-feature-link-traversal">https:/​/​github.com/comunica/comunica-feature-link-traversal</a>,
@@ -230,9 +305,9 @@ after which we discuss our main demonstration scenario.</p>
         <h3 id="user-interface">User interface</h3>
 
         <p>We demonstrate our traversal-based SPARQL query engine for Solid pods through a Web-based user interface.
-Since our engine was implemented in TypeScript, it can be transpiled down to JavaScript, and executed within a Web browser.
+Since our engine was implemented in TypeScript, it can be transpiled down to JavaScript, and executed client-side within any Web browser.
 Concretely, we make use of the <a href="https://github.com/comunica/jQuery-Widget.js" class="mandatory" data-link-text="https:/​/​github.com/​comunica/​jQuery-​Widget.js">Comunica jQuery widget</a>
-to generated a static HTML page that contains our traversal-based query engine, as shown in the future below.
+to generated a static HTML page that contains our traversal-based query engine, as shown in the figure below.
 This page is hosted on <a href="https://comunica.github.io/comunica-feature-link-traversal-web-clients/builds/solid-default/">https:/​/​comunica.github.io/comunica-feature-link-traversal-web-clients/builds/solid-default/</a>, and will remain available permanently after the conference.</p>
 
         <div class="printonly">
@@ -269,7 +344,7 @@ in which we have setup a large number of simulated Solid pods.</p>
 
         <p>Concretely, we host 1.531 Solid pods that were generated using the default settings of the <a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2023-SolidQuery/">SolidBench</a> <span class="references">[<a href="#ref-14">14</a>]</span> dataset generator,
 which consists of 3.556.159 triples spread over 158.233 RDF files across these pods.
-The SolidBench dataset is derived from the LDBC Social Network Benchmark (SNB) <span class="references">[<a href="#ref-21">21</a>]</span>,
+The SolidBench dataset is derived from the LDBC Social Network Benchmark (SNB) <span class="references">[<a href="#ref-27">27</a>]</span>,
 which provides a social network use case,
 in which people can be friends of each other,
 create posts, and like and comment on each others posts.
@@ -280,6 +355,8 @@ which can then be executed over this simulated environment.</p>
 which will produce all posts that are created by a specific person.
 For this, we will enable the Network inspection tool tab within the Chrome browser,
 which allows the audience to see the Resource Waterfall of all HTTP requests that were required to execute the query.
+This shows how some HTTP requests depend on other requests due to links between them,
+while other requests may be done in parallel.
 <a href="#figure-ui-resource-waterfall-1-5">Fig. 4</a> shows a screenshot of this scenario.</p>
 
         <figure id="figure-ui-resource-waterfall-1-5">
@@ -318,9 +395,9 @@ we provide a total of 37 default queries that can be selected in the dropdown-li
 that is able to query over DKGs within Solid,
 a permissioned decentralization environment.
 Our system is based on LTQP techniques
-that were specifically designed for the structural properties of the Solid environment.</p>
+that were specifically designed for exploiting the structural properties of the Solid environment.</p>
 
-        <p>To demonstrate this system, we provide a Web-based user interface that can be access and used
+        <p>To demonstrate this system, we provide a Web-based user interface that can be accessed and used
 by anyone with a modern Web browser.
 We provide several default SPARQL queries that users can execute across simulated Solid pods,
 or users may write their own SPARQL queries for execution against real-world Solid pods.
@@ -329,10 +406,12 @@ or via the command-line.</p>
 
         <p>Through this demonstration, we show the effectiveness of traversal-based SPARQL query execution across DKGs.
 Many queries start producing results in less than a second,
-which is below the threshold for obstructive delay in human perception <span class="references">[<a href="#ref-22">22</a>]</span> in interactive applications.
-Our system and its demonstration provide the groundwork for future research in traversal-based query processing over DKGs.
+which is below the threshold for obstructive delay in human perception <span class="references">[<a href="#ref-28">28</a>]</span> in interactive applications.
+Our system and its demonstration provide groundwork for future research in traversal-based query processing over DKGs.
 In future work, we will investigate further optimizations,
-which may involve adaptive query planning techniques <span class="references">[<a href="#ref-23">23</a>]</span> or enhancements to the <a property="schema:citation http://purl.org/spar/cito/cites" href="https://rubeneschauzier.github.io/QuWeDa2023-Link-Queue-Analysis-Camera-Ready/QuWeDa_2023_Link_Queue_Analysis_Final.pdf">link queue</a> <span class="references">[<a href="#ref-24">24</a>]</span>.</p>
+which may involve adaptive query planning techniques <span class="references">[<a href="#ref-29">29</a>]</span>
+–which have only seen limited adoption within LTQP <span class="references">[<a href="#ref-30">30</a>]</span> and SPARQL query processing <span class="references">[<a href="#ref-31">31</a>, <a href="#ref-32">32</a>, <a href="#ref-33">33</a>]</span>–
+or enhancements to the <a property="schema:citation http://purl.org/spar/cito/cites" href="https://rubeneschauzier.github.io/QuWeDa2023-Link-Queue-Analysis-Camera-Ready/QuWeDa_2023_Link_Queue_Analysis_Final.pdf">link queue</a> <span class="references">[<a href="#ref-34">34</a>]</span>.</p>
 
       </div>
 </section>
@@ -383,24 +462,44 @@ Ruben Taelman is a postdoctoral fellow of the Research Foundation – Flanders (
   <dt id="ref-14">[14]</dt>
   <dd resource="https://comunica.github.io/Article-ISWC2023-SolidQuery/" typeof="schema:Article">Taelman, R., Verborgh, R.: Link Traversal Query Processing over Decentralized Environments with Structural Assumptions. In: Proceedings of the 22nd International Semantic Web Conference (2023).</dd>
   <dt id="ref-15">[15]</dt>
-  <dd resource="#zeroknowldgequeryplanning" typeof="schema:Article">Hartig, O.: Zero-knowledge query planning for an iterator implementation of link traversal based query execution. In: Extended Semantic Web Conference. pp. 154–169. Springer (2011).</dd>
+  <dd resource="#queryingwwwsql" typeof="schema:Article">Mendelzon, A.O., Mihaila, G.A., Milo, T.: Querying the world wide web. In: Fourth International Conference on Parallel and Distributed Information Systems. pp. 80–91. IEEE (1996).</dd>
   <dt id="ref-16">[16]</dt>
-  <dd resource="#linktraversalsparql" typeof="schema:Article">Hartig, O.: SPARQL for a Web of Linked Data: Semantics and computability. In: Extended Semantic Web Conference. pp. 8–23. Springer (2012).</dd>
+  <dd resource="#infogatheringwwww3ql" typeof="schema:Article">Konopnicki, D., Shmueli, O.: Information gathering in the World-Wide Web: the W3QL query language and the W3QS system. ACM Transactions on Database Systems (TODS). 23, 369–410 (1998).</dd>
   <dt id="ref-17">[17]</dt>
-  <dd resource="#pipelining" typeof="schema:Article">Wilschut, A.N., Apers, P.M.G.: Pipelining in query execution. In: Proceedings. PARBASE-90: International Conference on Databases, Parallel Architectures, and Their Applications. p. 562. IEEE (1990).</dd>
+  <dd resource="#focusedcrawling" typeof="schema:Article">Chakrabarti, S., Van den Berg, M., Dom, B.: Focused crawling: a new approach to topic-specific Web resource discovery. Computer networks. 31, 1623–1640 (1999).</dd>
   <dt id="ref-18">[18]</dt>
-  <dd resource="#linktraversalfoundations" typeof="schema:Article">Hartig, O., Freytag, J.-C.: Foundations of Traversal based Query Execution over Linked Data. In: Proceedings of the 23rd ACM conference on Hypertext and social media. pp. 43–52. ACM (2012).</dd>
+  <dd resource="#focusedcrawlingimproving" typeof="schema:Article">Batsakis, S., Petrakis, E.G.M., Milios, E.: Improving the performance of focused web crawlers. Data &amp; Knowledge Engineering. 68, 1001–1013 (2009).</dd>
   <dt id="ref-19">[19]</dt>
-  <dd resource="https://solid.github.io/type-indexes/" typeof="schema:CreativeWork">Turdean, T.: Type Indexes. Solid, <a href="https://solid.github.io/type-indexes/">https:/​/​solid.github.io/type-indexes/</a> (2022).</dd>
+  <dd resource="#linktraversalfoundations" typeof="schema:Article">Hartig, O., Freytag, J.-C.: Foundations of Traversal based Query Execution over Linked Data. In: Proceedings of the 23rd ACM conference on Hypertext and social media. pp. 43–52. ACM (2012).</dd>
   <dt id="ref-20">[20]</dt>
-  <dd resource="https://comunica.github.io/Article-ISWC2018-Resource/" typeof="schema:Article">Taelman, R., Van Herwegen, J., Vander Sande, M., Verborgh, R.: Comunica: a Modular SPARQL Query Engine for the Web. In: Proceedings of the 17th International Semantic Web Conference (2018).</dd>
+  <dd resource="#zeroknowldgequeryplanning" typeof="schema:Article">Hartig, O.: Zero-knowledge query planning for an iterator implementation of link traversal based query execution. In: Extended Semantic Web Conference. pp. 154–169. Springer (2011).</dd>
   <dt id="ref-21">[21]</dt>
-  <dd resource="#ldbc_snb_interactive" typeof="schema:Article">Erling, O., Averbuch, A., Larriba-Pey, J., Chafi, H., Gubichev, A., Prat, A., Pham, M.-D., Boncz, P.: The LDBC social network benchmark: Interactive workload. In: Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data. pp. 619–630 (2015).</dd>
+  <dd resource="#linktraversalsparql" typeof="schema:Article">Hartig, O.: SPARQL for a Web of Linked Data: Semantics and computability. In: Extended Semantic Web Conference. pp. 8–23. Springer (2012).</dd>
   <dt id="ref-22">[22]</dt>
-  <dd resource="#uiresponsetime" typeof="schema:Article">Nielsen, J.: Response times: the three important limits. Usability Engineering. (1993).</dd>
+  <dd resource="#pipelining" typeof="schema:Article">Wilschut, A.N., Apers, P.M.G.: Pipelining in query execution. In: Proceedings. PARBASE-90: International Conference on Databases, Parallel Architectures, and Their Applications. p. 562. IEEE (1990).</dd>
   <dt id="ref-23">[23]</dt>
-  <dd resource="#adaptive_book" typeof="schema:Article">Deshpande, A., Ives, Z., Raman, V.: Adaptive query processing. Foundations and Trends\textregistered in Databases. 1, 1–140 (2007).</dd>
+  <dd resource="https://www.w3.org/TR/ldp/" typeof="schema:CreativeWork">Speicher, S., Arwe, J., Malhotra, A.: Linked Data Platform 1.0. W3C, <a href="https://www.w3.org/TR/ldp/">https:/​/​www.w3.org/TR/ldp/</a> (2015).</dd>
   <dt id="ref-24">[24]</dt>
+  <dd resource="https://solid.github.io/webid-profile/" typeof="schema:CreativeWork">Capadisli, S., Berners-Lee, T.: Solid WebID Profile. Solid, <a href="https://solid.github.io/webid-profile/">https:/​/​solid.github.io/webid-profile/</a> (2022).</dd>
+  <dt id="ref-25">[25]</dt>
+  <dd resource="https://solid.github.io/type-indexes/" typeof="schema:CreativeWork">Turdean, T.: Type Indexes. Solid, <a href="https://solid.github.io/type-indexes/">https:/​/​solid.github.io/type-indexes/</a> (2022).</dd>
+  <dt id="ref-26">[26]</dt>
+  <dd resource="https://comunica.github.io/Article-ISWC2018-Resource/" typeof="schema:Article">Taelman, R., Van Herwegen, J., Vander Sande, M., Verborgh, R.: Comunica: a Modular SPARQL Query Engine for the Web. In: Proceedings of the 17th International Semantic Web Conference (2018).</dd>
+  <dt id="ref-27">[27]</dt>
+  <dd resource="#ldbc_snb_interactive" typeof="schema:Article">Erling, O., Averbuch, A., Larriba-Pey, J., Chafi, H., Gubichev, A., Prat, A., Pham, M.-D., Boncz, P.: The LDBC social network benchmark: Interactive workload. In: Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data. pp. 619–630 (2015).</dd>
+  <dt id="ref-28">[28]</dt>
+  <dd resource="#uiresponsetime" typeof="schema:Article">Nielsen, J.: Response times: the three important limits. Usability Engineering. (1993).</dd>
+  <dt id="ref-29">[29]</dt>
+  <dd resource="#adaptive_book" typeof="schema:Article">Deshpande, A., Ives, Z., Raman, V.: Adaptive query processing. Foundations and Trends\textregistered in Databases. 1, 1–140 (2007).</dd>
+  <dt id="ref-30">[30]</dt>
+  <dd resource="#linktraversaloptimization" typeof="schema:Article">Hartig, O., Özsu, M.T.: Walking without a Map: Optimizing Response Times of Traversal-based Linked Data Queries (extended version). arXiv preprint arXiv:1607.01046. (2016).</dd>
+  <dt id="ref-31">[31]</dt>
+  <dd resource="#sparql_adaptive_anapsid" typeof="schema:Article">Acosta, M., Vidal, M.-E., Lampo, T., Castillo, J., Ruckhaus, E.: ANAPSID: an adaptive query processing engine for SPARQL endpoints. In: International Semantic Web Conference. pp. 18–34. Springer (2011).</dd>
+  <dt id="ref-32">[32]</dt>
+  <dd resource="#sparql_adaptive_ldeddies" typeof="schema:Article">Acosta, M., Vidal, M.-E.: Networks of linked data eddies: An adaptive web query processing engine for RDF data. In: International Semantic Web Conference. pp. 111–127. Springer (2015).</dd>
+  <dt id="ref-33">[33]</dt>
+  <dd resource="#sparql_adaptive_robust" typeof="schema:Article">Heling, L., Acosta, M.: Robust query processing for linked data fragments. Semantic Web. 1–35 (2022).</dd>
+  <dt id="ref-34">[34]</dt>
   <dd resource="https://rubeneschauzier.github.io/QuWeDa2023-Link-Queue-Analysis-Camera-Ready/QuWeDa_2023_Link_Queue_Analysis_Final.pdf" typeof="schema:Article">Eschauzier, R., Taelman, R., Verborgh, R.: How Does the Link Queue Evolve during Traversal-Based Query Processing? In: Proceedings of the 7th International Workshop on Storing, Querying and Benchmarking Knowledge Graphs (2023).</dd>
 </dl>
 </section>
