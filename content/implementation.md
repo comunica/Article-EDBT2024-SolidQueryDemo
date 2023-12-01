@@ -11,7 +11,7 @@ which consists of pipelined implementations of all monotonic SPARQL operators.
 As such, our system is able to execute SPARQL queries over Solid pods using a traversal-based approach.
 Since certain documents within Solid pods may exist behind document-level access control,
 our implementation supports authentication.
-This allows users to log into the query engine using their Solid account,
+This allows users to log into the query engine using their Solid WebID,
 after which the query engine will execute query on their behalf across all data the user can access.
 
 Our implementation is available under the MIT license at [https://github.com/comunica/comunica-feature-link-traversal](https://github.com/comunica/comunica-feature-link-traversal),

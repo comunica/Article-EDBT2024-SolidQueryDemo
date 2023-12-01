@@ -9,7 +9,7 @@ after which we discuss our main demonstration scenario.
 We demonstrate our traversal-based SPARQL query engine for Solid pods through a Web-based user interface.
 Since our engine was implemented in TypeScript, it can be transpiled down to JavaScript, and executed client-side within any Web browser.
 Concretely, we make use of the [Comunica jQuery widget](https://github.com/comunica/jQuery-Widget.js){:.mandatory}
-to generated a static HTML page that contains our traversal-based query engine, as shown in the future below.
+to generated a static HTML page that contains our traversal-based query engine, as shown in the figure below.
 This page is hosted on [https://comunica.github.io/comunica-feature-link-traversal-web-clients/builds/solid-default/](https://comunica.github.io/comunica-feature-link-traversal-web-clients/builds/solid-default/), and will remain available permanently after the conference.
 
 <div class="printonly">

@@ -26,6 +26,12 @@ For example, all Solid pods make use of the [Linked Data Platform (LDP) specific
 to provide an overview of all RDF documents inside a pod, which may be nested in a hierarchy of *containers*.
 An example of such a container can be seen in [](#example-ldpcontainer),
 which contains links to another document and two containers.
+In order to indicate the existence of such Solid pods,
+agents within the Solid ecosystem (typically persons of organizations) may link to their pods via their identifying [*WebID*](cite:cites spec:webidprofile).
+Through this WebID, agents can be uniquely identified via a URL.
+After dereferencing this URL, an RDF document can be returned that can contain a link to the user's Solid pod
+and other basic information such as name and contact details.
+An example of such a WebID document is shown in [](#example-webidprofile).
 Furthermore, Solid pods can expose a [Type Index](cite:cites spec:typeindex),
 which contains a list of RDF classes for which instances exist in this pod,
 together with links to RDF documents containing such instances.
@@ -36,6 +42,13 @@ which contains entries for posts and comments.
 ````/code/ldpcontainer.ttl````
 <figcaption markdown="block">
 An LDP container in a Solid data vault containing one file and two directories in the RDF Turtle serialization.
+</figcaption>
+</figure>
+
+<figure id="example-webidprofile" class="listing">
+````/code/webidprofile.ttl````
+<figcaption markdown="block">
+A simplified WebID profile in Turtle.
 </figcaption>
 </figure>
 
