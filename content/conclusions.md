@@ -19,4 +19,6 @@ Many queries start producing results in less than a second,
 which is below the [threshold for obstructive delay in human perception](cite:cites uiresponsetime) in interactive applications.
 Our system and its demonstration provide groundwork for future research in traversal-based query processing over DKGs.
 In future work, we will investigate further optimizations,
-which may involve [adaptive query planning techniques](cite:cites adaptive_book) or enhancements to the [link queue](cite:cites linkqueueevolution).
+which may involve [adaptive query planning techniques](cite:cites adaptive_book)
+–which have only seen limited adoption within [LTQP](cite:cites linktraversaloptimization) and [SPARQL query processing](cite:cites sparql_adaptive_anapsid, sparql_adaptive_ldeddies, sparql_adaptive_robust)–
+or enhancements to the [link queue](cite:cites linkqueueevolution).
