@@ -11,7 +11,7 @@
   <meta name="citation_author" content="Ruben Taelman" />
   <meta name="citation_author" content="Ruben Verborgh" />
   
-  <meta name="citation_publication_date" content="2023/12/01" />
+  <meta name="citation_publication_date" content="2024/01/29" />
 </head>
 
 <body prefix="dctypes: http://purl.org/dc/dcmitype/ pimspace: http://www.w3.org/ns/pim/space# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# lsc: http://linkedscience.org/lsc/ns#" typeof="schema:CreativeWork sioc:Post prov:Entity lsc:Research">
@@ -72,21 +72,10 @@ Solid,
 <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework" resource="http://dbpedia.org/resource/Resource_Description_Framework">RDF</a>
 </span></p>
 
-      <p><span class="printonly" id="acmreferenceformat">
-<span class="title">ACM Reference Format:</span>
-Doe, J. My Awesome Article. In <i>Conference Companion: The Conference Companion, April 23—27, 2018, Lyon, France</i>. Publisher, New York, NY, USA, 4 pages.
-<i>http:/​/​dx.doi.org/1.2/111.222</i>
-</span></p>
-
       <p><span class="printonly firstpagefooter">
 <span class="footnotecopyright">
-This paper is published under the Creative Commons Attribution 4.0 International (CC-BY 4.0) license.
-Authors reserve their rights to disseminate the work on their personal and corporate Web sites with the appropriate attribution.<br />
-<span style="font-style:italic">CONFERENCE</span><br />
-©2018 Copyright,
-published under Creative Commons CC BY 4.0 License.<br />
-Publisher 1122.<br />
-DOI: http://dx.doi.org/1.2/111.222
+© 2024 Copyright held by the owner/author(s). Published in Proceedings of the 27th International Conference on Extending Database Technology (EDBT), 25th March-28th March, 2024, ISBN 978-3-89318-095-0 on OpenProceedings.org.
+Distribution of this paper is permitted under the terms of the Creative Commons license CC-by-nc-nd 4.0.
 </span>
 </span></p>
 
@@ -118,15 +107,14 @@ there is a need for efficient query processing techniques.
 While techniques have been introduced that enable the execution of SPARQL federated queries <span class="references">[<a href="#ref-8">8</a>, <a href="#ref-9">9</a>, <a href="#ref-10">10</a>]</span>,
 they are <a property="schema:citation http://purl.org/spar/cito/cites" href="https://hal.science/hal-04180506/document">optimized for handling a <em>small</em> number (~10) of <em>large</em> sources</a> <span class="references">[<a href="#ref-11">11</a>]</span>,
 whereas DKGs such as Solid are characterized
-by a <em>large</em> number (&gt;1000) of
-<span class="placeholder printonly">
-<span style="display: block; height: 9em;"></span>
-<!-- This is a dummy placeholder for the ACM first page footnote -->
-</span>
-<em>small</em> sources.
+by a <em>large</em> number (&gt;1000) of <em>small</em> sources.
 Additionally, federated SPARQL query processing assumes sources to be known prior to query execution,
 which is not feasible in DKGs due to the lack of a central index.
-Hence, these techniques are ill-suited for the envisaged scale of distribution in DKGs.</p>
+Hence, these techniques are ill-suited for the envisaged scale of distribution in DKGs.
+<span class="placeholder printonly">
+<span style="display: block; height: 5em;"></span>
+<!-- This is a dummy placeholder for the ACM first page footnote -->
+</span></p>
 
         <p>To cope with these problems, alternative techniques have been introduced recently.
 <a property="schema:citation http://purl.org/spar/cito/cites" href="https://drive.google.com/file/d/10shierpx6sIgbTS-Mn1SR6NN5Meb5lA0/view">ESPRESSO</a> <span class="references">[<a href="#ref-12">12</a>]</span> was introduced as an approach that builds distributed indexes for Solid pods
