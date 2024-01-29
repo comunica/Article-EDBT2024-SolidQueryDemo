@@ -24,15 +24,15 @@ by a *large* number (>1000) of *small* sources.
 Additionally, federated SPARQL query processing assumes sources to be known prior to query execution,
 which is not feasible in DKGs due to the lack of a central index.
 Hence, these techniques are ill-suited for the envisaged scale of distribution in DKGs.
-<span class="placeholder printonly">
-<span style="display: block; height: 5em;"></span>
-<!-- This is a dummy placeholder for the ACM first page footnote -->
-</span>
 
 To cope with these problems, alternative techniques have been introduced recently.
 [ESPRESSO](cite:cites espresso) was introduced as an approach that builds distributed indexes for Solid pods
 which can be accumulated in a single location.
 This accumulated index can then be queried using keyword search to find relevant pods to a query,
+<span class="placeholder printonly">
+<span style="display: block; height: 5em;"></span>
+<!-- This is a dummy placeholder for the ACM first page footnote -->
+</span>
 after which these relevant pods can be queried using federated SPARQL processing techniques.
 This approach depends on placing trust over personal data in this single accumulated indexer.
 [POD-QUERY](cite:cites podquery) is another approach that involves placing a SPARQL query engine agent in front of a Solid pod,

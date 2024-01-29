@@ -20,14 +20,6 @@ and uncovers opportunities for further optimizations in future work in terms of 
 
 **Video**: [https://www.youtube.com/watch?v=4WHWgWWZ_aQ](https://www.youtube.com/watch?v=4WHWgWWZ_aQ)
 
-<span id="keywords" rel="schema:about"><span class="title">Keywords</span>
-Decentralized Knowledge Graphs,
-<a href="https://en.wikipedia.org/wiki/SPARQL" resource="http://dbpedia.org/resource/SPARQL">SPARQL</a>,
-Solid,
-<a href="https://en.wikipedia.org/wiki/Linked_Data" resource="http://dbpedia.org/resource/Linked_Data">Linked Data</a>,
-<a href="https://en.wikipedia.org/wiki/Resource_Description_Framework" resource="http://dbpedia.org/resource/Resource_Description_Framework">RDF</a>
-</span>
-
 <span class="printonly firstpagefooter">
 <span class="footnotecopyright">
 © 2024 Copyright held by the owner/author(s). Published in Proceedings of the 27th International Conference on Extending Database Technology (EDBT), 25th March-28th March, 2024, ISBN 978-3-89318-095-0 on OpenProceedings.org.
