@@ -20,15 +20,14 @@ there is a need for efficient query processing techniques.
 While techniques have been introduced that enable the execution of [SPARQL federated queries](cite:cites fedx, hibiscus, splendid),
 they are [optimized for handling a *small* number (~10) of *large* sources](cite:cites fedshop),
 whereas DKGs such as Solid are characterized
-by a *large* number (>1000) of
-<span class="placeholder printonly">
-<span style="display: block; height: 9em;"></span>
-<!-- This is a dummy placeholder for the ACM first page footnote -->
-</span>
-*small* sources.
+by a *large* number (>1000) of *small* sources.
 Additionally, federated SPARQL query processing assumes sources to be known prior to query execution,
 which is not feasible in DKGs due to the lack of a central index.
 Hence, these techniques are ill-suited for the envisaged scale of distribution in DKGs.
+<span class="placeholder printonly">
+<span style="display: block; height: 5em;"></span>
+<!-- This is a dummy placeholder for the ACM first page footnote -->
+</span>
 
 To cope with these problems, alternative techniques have been introduced recently.
 [ESPRESSO](cite:cites espresso) was introduced as an approach that builds distributed indexes for Solid pods
