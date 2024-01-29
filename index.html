@@ -64,14 +64,6 @@ and uncovers opportunities for further optimizations in future work in terms of 
 
       <p><strong>Video</strong>: <a href="https://www.youtube.com/watch?v=4WHWgWWZ_aQ">https:/​/​www.youtube.com/watch?v=4WHWgWWZ_aQ</a></p>
 
-      <p><span id="keywords" rel="schema:about"><span class="title">Keywords</span>
-Decentralized Knowledge Graphs,
-<a href="https://en.wikipedia.org/wiki/SPARQL" resource="http://dbpedia.org/resource/SPARQL">SPARQL</a>,
-Solid,
-<a href="https://en.wikipedia.org/wiki/Linked_Data" resource="http://dbpedia.org/resource/Linked_Data">Linked Data</a>,
-<a href="https://en.wikipedia.org/wiki/Resource_Description_Framework" resource="http://dbpedia.org/resource/Resource_Description_Framework">RDF</a>
-</span></p>
-
       <p><span class="printonly firstpagefooter">
 <span class="footnotecopyright">
 © 2024 Copyright held by the owner/author(s). Published in Proceedings of the 27th International Conference on Extending Database Technology (EDBT), 25th March-28th March, 2024, ISBN 978-3-89318-095-0 on OpenProceedings.org.
@@ -110,16 +102,16 @@ whereas DKGs such as Solid are characterized
 by a <em>large</em> number (&gt;1000) of <em>small</em> sources.
 Additionally, federated SPARQL query processing assumes sources to be known prior to query execution,
 which is not feasible in DKGs due to the lack of a central index.
-Hence, these techniques are ill-suited for the envisaged scale of distribution in DKGs.
-<span class="placeholder printonly">
-<span style="display: block; height: 5em;"></span>
-<!-- This is a dummy placeholder for the ACM first page footnote -->
-</span></p>
+Hence, these techniques are ill-suited for the envisaged scale of distribution in DKGs.</p>
 
         <p>To cope with these problems, alternative techniques have been introduced recently.
 <a property="schema:citation http://purl.org/spar/cito/cites" href="https://drive.google.com/file/d/10shierpx6sIgbTS-Mn1SR6NN5Meb5lA0/view">ESPRESSO</a> <span class="references">[<a href="#ref-12">12</a>]</span> was introduced as an approach that builds distributed indexes for Solid pods
 which can be accumulated in a single location.
 This accumulated index can then be queried using keyword search to find relevant pods to a query,
+<span class="placeholder printonly">
+<span style="display: block; height: 5em;"></span>
+<!-- This is a dummy placeholder for the ACM first page footnote -->
+</span>
 after which these relevant pods can be queried using federated SPARQL processing techniques.
 This approach depends on placing trust over personal data in this single accumulated indexer.
 <a property="schema:citation http://purl.org/spar/cito/cites" href="https://biblio.ugent.be/publication/01HFXXCEDY864SVA6VRARWQ64D">POD-QUERY</a> <span class="references">[<a href="#ref-13">13</a>]</span> is another approach that involves placing a SPARQL query engine agent in front of a Solid pod,
